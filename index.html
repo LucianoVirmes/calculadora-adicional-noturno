@@ -1,146 +1,392 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BM750K4TYH"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BM750K4TYH"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-BM750K4TYH');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-BM750K4TYH");
     </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calculadora de adicional noturno para trabalhadores. Insira seu salário e horas trabalhadas para calcular o adicional noturno e horas extras.">
-    <meta name="keywords" content="calculadora, adicional noturno, salário, horas extras, trabalho noturno">
-    <meta name="author" content="Luciano Virmes">
-    <meta property="og:title" content="Calculadora de Adicional Noturno">
-    <meta property="og:description" content="Calcule de forma simples e rápida o adicional noturno e horas extras.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lucianovirmes.github.io/calculadora-adicional-noturno/">
-    <title>Calculadora de Adicional Noturno</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Calcule seu adicional noturno e horas extras de forma rápida e precisa. Descubra quanto você tem direito a receber por trabalho noturno conforme a CLT."
+    />
+    <meta name="author" content="Luciano Virmes" />
+    <meta
+      property="og:title"
+      content="Calculadora de Adicional Noturno | Calcule Horas Extras e Noturnas"
+    />
+    <meta
+      property="og:description"
+      content="Calcule de forma simples e rápida o adicional noturno e horas extras. Descubra seus direitos trabalhistas e quanto você tem a receber."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://lucianovirmes.github.io/calculadora-adicional-noturno/"
+    />
+    <meta
+      property="og:image"
+      content="https://lucianovirmes.github.io/calculadora-adicional-noturno/imagem.jpg"
+    />
+    <title>
+      Calculadora de Adicional Noturno | Calcule Horas Extras e Noturnas
+    </title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .container {
-            max-width: 400px;
-            margin: auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-            background-color: #fff;
-        }
-        h1, h2 {
-            color: #0056b3;
-        }
-        label {
-            font-weight: bold;
-            display: block;
-            text-align: left;
-            margin-top: 10px;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-            border: none;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .calculo {
-            text-align: left;
-            margin-top: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            font-size: 14px;
-            color: #333;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      .container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        margin-top: 8px;
+      }
+      h1,
+      h2,
+      h3 {
+        color: #0056b3;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        text-align: left;
+        margin-top: 10px;
+      }
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+      button {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        border: none;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .calculo {
+        text-align: left;
+        margin-top: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        font-size: 14px;
+        color: #333;
+      }
+      .cta-button {
+        background-color: #28a745;
+        margin-top: 20px;
+      }
+      .cta-button:hover {
+        background-color: #218838;
+      }
+      .clt-link {
+        color: #007bff;
+        text-decoration: none;
+      }
+      .clt-link:hover {
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1>Calculadora de Adicional Noturno</h1>
-        <label for="salario">Salário Bruto:</label>
-        <input type="number" id="salario" placeholder="Digite o salário bruto">
-        
-        <label for="jornada">Jornada de Trabalho:</label>
-        <select id="jornada">
-            <option value="220">220 horas</option>
-            <option value="200">200 horas</option>
-        </select>
-        
-        <label for="horas">Horas Trabalhadas no Mês (hh:mm):</label>
-        <input type="text" id="horas" placeholder="Digite as horas (hh:mm)">
-        
-        <label for="horasExtras">Horas Extras Trabalhadas (hh:mm):</label>
-        <input type="text" id="horasExtras" placeholder="Digite as horas extras (hh:mm)">
-        
-        <button onclick="calcularAdicional()">Calcular</button>
-        
-        <h2 id="resultado"></h2>
-        <div id="calculo" class="calculo" style="display: none;"></div>
+      <h1>Calculadora de Adicional Noturno</h1>
+      <label for="salario">Salário Bruto:</label>
+      <input type="number" id="salario" placeholder="Digite o salário bruto" />
+
+      <label for="jornada">Jornada de Trabalho:</label>
+      <select id="jornada">
+        <option value="220">220 horas</option>
+        <option value="200">200 horas</option>
+      </select>
+
+      <label for="horas">Horas Trabalhadas no Mês (hh:mm):</label>
+      <input type="text" id="horas" placeholder="Digite as horas (hh:mm)" />
+
+      <label for="horasExtras">Horas Extras Trabalhadas (hh:mm):</label>
+      <input
+        type="text"
+        id="horasExtras"
+        placeholder="Digite as horas extras (hh:mm)"
+      />
+
+      <button onclick="calcularAdicional()">Calcular</button>
+
+      <h2 id="resultado"></h2>
+      <div id="calculo" class="calculo" style="display: none"></div>
+    </div>
+
+    <div class="container">
+      <h2>O que é o Adicional Noturno?</h2>
+      <p>
+        O adicional noturno é um benefício garantido pela
+        <a
+          class="clt-link"
+          href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+          target="_blank"
+          >CLT (Consolidação das Leis do Trabalho)</a
+        >
+        para trabalhadores que exercem suas funções entre 22h e 5h. Esse
+        acréscimo é de, no mínimo, 20% sobre o valor da hora trabalhada.
+      </p>
+
+      <h2>Como funciona esta calculadora?</h2>
+      <p>
+        Esta ferramenta permite calcular o valor do adicional noturno de forma
+        rápida e simples. Basta inserir o salário bruto, a jornada de trabalho e
+        as horas trabalhadas no período noturno.
+      </p>
+
+      <h2>Benefícios do Adicional Noturno</h2>
+      <p>
+        Além do acréscimo de 20% sobre a hora trabalhada, o adicional noturno
+        também garante:
+      </p>
+      <ul>
+        <li>
+          <strong>Horas reduzidas</strong>: A cada 52 minutos e 30 segundos
+          trabalhados no período noturno, considera-se 1 hora. Para mais
+          detalhes, consulte o
+          <a
+            class="clt-link"
+            href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+            target="_blank"
+            >Art. 73 da CLT</a
+          >.
+        </li>
+        <li>
+          <strong>Integração com horas extras</strong>: O adicional noturno é
+          aplicado antes do cálculo das horas extras. Veja mais no
+          <a
+            class="clt-link"
+            href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+            target="_blank"
+            >Art. 59 da CLT</a
+          >.
+        </li>
+      </ul>
+
+      <h2>Perguntas Frequentes</h2>
+      <h3>Quem tem direito ao adicional noturno?</h3>
+      <p>
+        Todos os trabalhadores contratados pelo regime CLT que trabalham entre
+        22h e 5h têm direito ao adicional noturno. Confira o
+        <a
+          class="clt-link"
+          href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+          target="_blank"
+          >Art. 73 da CLT</a
+        >.
+      </p>
+
+      <h3>Como calcular as horas reduzidas no adicional noturno?</h3>
+      <p>
+        A cada 52 minutos e 30 segundos trabalhados no período noturno,
+        considera-se 1 hora. Por isso, multiplica-se as horas noturnas por
+        1.1428 para converter corretamente. Veja mais no
+        <a
+          class="clt-link"
+          href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+          target="_blank"
+          >Art. 73 da CLT</a
+        >.
+      </p>
+
+      <h3>O adicional noturno entra no cálculo das horas extras?</h3>
+      <p>
+        Sim. Caso você tenha feito horas extras no período noturno, o adicional
+        noturno é aplicado antes do acréscimo de 50% (ou mais, dependendo do
+        acordo trabalhista). Confira o
+        <a
+          class="clt-link"
+          href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+          target="_blank"
+          >Art. 59 da CLT</a
+        >.
+      </p>
+
+      <h3>Qual a diferença entre adicional noturno e horas extras?</h3>
+      <p>
+        O adicional noturno é um acréscimo de 20% sobre a hora trabalhada no
+        período noturno, enquanto as horas extras são um acréscimo de 50% ou
+        mais sobre a hora trabalhada fora da jornada regular. Veja mais no
+        <a
+          class="clt-link"
+          href="https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm"
+          target="_blank"
+          >Art. 59 da CLT</a
+        >.
+      </p>
+    </div>
+
+    <!-- Call to Action (CTA) -->
+    <div class="container">
+      <h2>Experimente Agora!</h2>
+      <p>
+        Use nossa calculadora de adicional noturno e descubra quanto você tem a
+        receber. Compartilhe esta ferramenta com seus colegas de trabalho!
+      </p>
+      <button class="cta-button" onclick="scrollToCalculator()">
+        Calcular Adicional Noturno
+      </button>
+      <button class="cta-button" onclick="sharePage()">Compartilhar</button>
     </div>
 
     <script>
-        function converterHorasParaDecimal(horasMinutos) {
-            const [horas, minutos] = horasMinutos.split(':').map(num => parseFloat(num) || 0);
-            return horas + Math.floor((minutos / 60) * 100) / 100;
+      function converterHorasParaDecimal(horasMinutos) {
+        const [horas, minutos] = horasMinutos
+          .split(":")
+          .map((num) => parseFloat(num) || 0);
+        return horas + Math.floor((minutos / 60) * 100) / 100;
+      }
+
+      function calcularAdicional() {
+        const salario = parseFloat(document.getElementById("salario").value);
+        const horas = converterHorasParaDecimal(
+          document.getElementById("horas").value
+        );
+        const jornada = parseFloat(document.getElementById("jornada").value);
+        const horasExtras =
+          converterHorasParaDecimal(
+            document.getElementById("horasExtras").value
+          ) || 0;
+
+        if (
+          isNaN(salario) ||
+          isNaN(horas) ||
+          isNaN(jornada) ||
+          salario <= 0 ||
+          horas <= 0
+        ) {
+          document.getElementById("resultado").innerText =
+            "Por favor, insira valores válidos.";
+          document.getElementById("calculo").style.display = "none";
+          return;
         }
 
-        function calcularAdicional() {
-            const salario = parseFloat(document.getElementById('salario').value);
-            const horas = converterHorasParaDecimal(document.getElementById('horas').value);
-            const jornada = parseFloat(document.getElementById('jornada').value);
-            const horasExtras = converterHorasParaDecimal(document.getElementById('horasExtras').value) || 0;
-            
-            if (isNaN(salario) || isNaN(horas) || isNaN(jornada) || salario <= 0 || horas <= 0) {
-                document.getElementById('resultado').innerText = "Por favor, insira valores válidos.";
-                document.getElementById('calculo').style.display = "none";
-                return;
-            }
+        const valorHora = salario / jornada;
+        const adicionalNoturnoHora = valorHora * 0.2;
+        const horaReduzida = horas * 1.142857143;
+        const adicionalNoturnoTotal = horaReduzida * adicionalNoturnoHora;
 
-            const valorHora = salario / jornada;
-            const adicionalNoturnoHora = valorHora * 0.20;
-            const horaReduzida = horas * 1.142857143;
-            const adicionalNoturnoTotal = horaReduzida * adicionalNoturnoHora;
-            
-            const valorHoraExtraNoturna = (valorHora + adicionalNoturnoHora) * 1.5;
-            const totalHoraExtraNoturna = horasExtras * new Number(valorHoraExtraNoturna.toFixed(2));
-            const totalReceber = adicionalNoturnoTotal + totalHoraExtraNoturna;
-            
-            document.getElementById('resultado').innerText = `Total a Receber: R$ ${totalReceber.toFixed(2)}`;
-            
-            document.getElementById('calculo').innerHTML = `
+        const valorHoraExtraNoturna = (valorHora + adicionalNoturnoHora) * 1.5;
+        const totalHoraExtraNoturna =
+          horasExtras * new Number(valorHoraExtraNoturna.toFixed(2));
+        const totalReceber = adicionalNoturnoTotal + totalHoraExtraNoturna;
+
+        document.getElementById(
+          "resultado"
+        ).innerText = `Total a Receber: R$ ${totalReceber.toFixed(2)}`;
+
+        document.getElementById("calculo").innerHTML = `
                 <strong>Cálculo Utilizado:</strong><br>
                 <br>
-                Valor da Hora: R$ ${valorHora.toFixed(2)} (Salário / Jornada)<br>
-                Adicional Noturno por Hora: R$ ${adicionalNoturnoHora.toFixed(2)} (Valor da Hora * 20%)<br>
-                Hora Reduzida: ${horaReduzida.toFixed(2)} (Horas Trabalhadas * 1.142857143)<br>
-                Adicional Noturno Total: R$ ${adicionalNoturnoTotal.toFixed(2)} (Hora Reduzida * Adicional Noturno por Hora)<br>
-                Valor da Hora Extra Noturna: R$ ${valorHoraExtraNoturna.toFixed(2)} (Valor da Hora + Adicional Noturno por Hora) * 1.5<br>
-                Total de Hora Extra Noturna: R$ ${totalHoraExtraNoturna.toFixed(2)} ((Horas Extras * 1.1428) * Valor da Hora Extra Noturna)<br>
+                Valor da Hora: R$ ${valorHora.toFixed(
+                  2
+                )} (Salário / Jornada)<br>
+                Adicional Noturno por Hora: R$ ${adicionalNoturnoHora.toFixed(
+                  2
+                )} (Valor da Hora * 20%)<br>
+                Hora Reduzida: ${horaReduzida.toFixed(
+                  2
+                )} (Horas Trabalhadas * 1.142857143)<br>
+                Adicional Noturno Total: R$ ${adicionalNoturnoTotal.toFixed(
+                  2
+                )} (Hora Reduzida * Adicional Noturno por Hora)<br>
+                Valor da Hora Extra Noturna: R$ ${valorHoraExtraNoturna.toFixed(
+                  2
+                )} (Valor da Hora + Adicional Noturno por Hora) * 1.5<br>
+                Total de Hora Extra Noturna: R$ ${totalHoraExtraNoturna.toFixed(
+                  2
+                )} ((Horas Extras * 1.1428) * Valor da Hora Extra Noturna)<br>
                 <br>
                 <strong>Total a Receber: R$ ${totalReceber.toFixed(2)}</strong>
             `;
-            document.getElementById('calculo').style.display = "block";
+        document.getElementById("calculo").style.display = "block";
+      }
+      // Função para rolar até a calculadora
+      function scrollToCalculator() {
+        document
+          .querySelector(".container")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Função para compartilhar a página
+      function sharePage() {
+        if (navigator.share) {
+          navigator
+            .share({
+              title: "Calculadora de Adicional Noturno",
+              text: "Calcule seu adicional noturno e horas extras de forma rápida e precisa.",
+              url: window.location.href,
+            })
+            .then(() => {
+              console.log("Página compartilhada com sucesso!");
+            })
+            .catch((error) => {
+              console.error("Erro ao compartilhar:", error);
+            });
+        } else {
+          alert(
+            "Seu navegador não suporta a função de compartilhamento. Copie o link manualmente: " +
+              window.location.href
+          );
         }
+      }
     </script>
-</body>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Como calcular o adicional noturno",
+        "description": "Aprenda a calcular o adicional noturno e horas extras de forma simples.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "text": "Insira seu salário bruto."
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Selecione sua jornada de trabalho."
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Digite as horas trabalhadas no período noturno."
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Clique em 'Calcular' para ver o resultado."
+          }
+        ]
+      }
+    </script>
+  </body>
 </html>
