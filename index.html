@@ -120,6 +120,16 @@
 				font-size: 14px;
 				color: #666;
 			}
+			.input-container input {
+				display: inline-block;
+				width: 48%; /* Ajuste a largura conforme necessário */
+				margin-right: 2%; /* Adiciona um pequeno espaço entre os inputs */
+			}
+
+			.input-container input:last-child {
+				margin-right: 0; /* Remove a margem do último input */
+			}
+
 			@media (max-width: 600px) {
 				body {
 					padding: 10px;
@@ -158,25 +168,41 @@
 				<option value="200">200 horas</option>
 			</select>
 
-			<label for="horas">Horas Trabalhadas no Mês (hh:mm):</label>
-			<input
-				type="text"
-				id="horas"
-				oninput="formatHour(this)"
-				inputmode="numeric"
-				pattern="[0-9]*"
-				placeholder="Digite as horas (hh:mm)"
-			/>
+			<label for="horas">Horas Trabalhadas no Mês:</label>
+			<div class="input-container">
+				<input
+					type="number"
+					id="horas"
+					inputmode="numeric"
+					pattern="[0-9]*"
+					placeholder="Digite as horas"
+				/>
+				<input
+					type="number"
+					id="minutos"
+					inputmode="numeric"
+					pattern="[0-9]*"
+					placeholder="Digite os minutos"
+				/>
+			</div>
 
 			<label for="horasExtras">Horas Extras Trabalhadas (hh:mm):</label>
-			<input
-				type="text"
-				id="horasExtras"
-				inputmode="numeric"
-				pattern="[0-9]*"
-				oninput="formatHour(this)"
-				placeholder="Digite as horas extras (hh:mm)"
-			/>
+			<div class="input-container">
+				<input
+					type="number"
+					id="horasExtras"
+					inputmode="numeric"
+					pattern="[0-9]*"
+					placeholder="Digite as horas extras"
+				/>
+				<input
+					type="number"
+					id="minutosExtras"
+					inputmode="numeric"
+					pattern="[0-9]*"
+					placeholder="Digite os minutos extras"
+				/>
+			</div>
 
 			<button onclick="calcularAdicional()">Calcular</button>
 
@@ -290,23 +316,13 @@
 				input.value = `R$ ${value}`;
 			}
 
-			//hour mask with value HH:mm
-			function formatHour(input) {
-				let value = input.value.replace(/\D/g, "");
-				value = value.replace(/(\d{2})(\d)/, "$1:$2");
-				input.value = value;
-			}
-
 			function cleanMoneyValue(value) {
 				return parseFloat(
 					value.replace("R$ ", "").replace(".", "").replace(",", ".")
 				);
 			}
 
-			function converterHorasParaDecimal(horasMinutos) {
-				const [horas, minutos] = horasMinutos
-					.split(":")
-					.map((num) => parseFloat(num) || 0);
+			function converterHorasParaDecimal(horas, minutos) {
 				return horas + Math.floor((minutos / 60) * 100) / 100;
 			}
 
@@ -316,14 +332,16 @@
 				);
 
 				const horas = converterHorasParaDecimal(
-					document.getElementById("horas").value
+					document.getElementById("horas").value,
+					document.getElementById("minutos").value
 				);
 				const jornada = parseFloat(
 					document.getElementById("jornada").value
 				);
 				const horasExtras =
 					converterHorasParaDecimal(
-						document.getElementById("horasExtras").value
+						document.getElementById("horasExtras").value,
+						document.getElementById("minutosExtras").value
 					) || 0;
 
 				if (
